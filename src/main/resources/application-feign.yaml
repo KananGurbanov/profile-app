@@ -1,0 +1,5 @@
+#feign:
+#  client:
+#    config:
+#      my-client:
+#        url: ${MY_MS: my-url}
