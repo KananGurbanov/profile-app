@@ -5,7 +5,7 @@ import az.edu.turing.profileapp.model.dto.*;
 import java.util.List;
 
 public interface UserService {
-    UserResponseDto createUser(UserCreateRequestDto userCreateRequestDto);
+    Long createUser(UserCreateRequestDto userCreateRequestDto);
     void updateUser(Long id, UserUpdateRequestDto userUpdateRequestDto);
     UserResponseDto retrieveUser(Long id);
     List<UserResponseDto> retrieveUsers();

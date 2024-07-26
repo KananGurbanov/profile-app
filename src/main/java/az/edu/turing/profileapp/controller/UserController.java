@@ -22,10 +22,10 @@ public class UserController {
     private final UserServiceImpl userService;
 
     @PostMapping
-    public ResponseEntity<RestResponse<UserResponseDto>> createUser(@RequestBody @Valid UserCreateRequestDto userCreateRequestDto) {
-        UserResponseDto userResponseDto = userService.createUser(userCreateRequestDto);
-        RestResponse<UserResponseDto> response = RestResponse.<UserResponseDto>builder()
-                .data(userResponseDto)
+    public ResponseEntity<RestResponse<Long>> createUser(@RequestBody @Valid UserCreateRequestDto userCreateRequestDto) {
+        Long userId = userService.createUser(userCreateRequestDto);
+        RestResponse<Long> response = RestResponse.<Long>builder()
+                .data(userId)
                 .status("SUCCESS")
                 .build();
         return new ResponseEntity<>(response, HttpStatus.CREATED);

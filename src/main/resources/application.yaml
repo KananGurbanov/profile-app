@@ -1,6 +1,7 @@
 spring:
   profiles:
-    active: feign,db,server
+    active: db,server
+
 logging:
   level:
     org.springframework: info
