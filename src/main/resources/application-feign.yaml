@@ -2,4 +2,4 @@
 #  client:
 #    config:
 #      my-client:
-#        url: ${MY_MS: my-url}
+#        url: ${MY_MS:my-url}
