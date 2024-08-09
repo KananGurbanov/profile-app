@@ -1,11 +1,11 @@
 package az.edu.turing.profileapp.model.dto;
 
 import jakarta.validation.constraints.NotBlank;
-import lombok.*;
-import lombok.experimental.FieldDefaults;
+import lombok.Builder;
+import lombok.NonNull;
 
 @Builder
-public record UserCreateRequestDto (
+public record UserCreateRequestDto(
         @NotBlank
         String name,
 
@@ -13,5 +13,5 @@ public record UserCreateRequestDto (
         Integer age,
 
         @NotBlank
-        String image){
+        String image) {
 }
