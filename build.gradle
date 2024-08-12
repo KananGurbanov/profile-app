@@ -20,7 +20,7 @@ configurations {
 
 repositories {
     mavenCentral()
-    maven { url "https://repo.spring.io/milestone" }  // Added Spring Milestone repository
+    maven { url "https://repo.spring.io/milestone" }
 }
 
 dependencies {

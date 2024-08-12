@@ -1,6 +1,7 @@
 package az.edu.turing.profileapp.handler;
 
 
+import az.edu.turing.profileapp.exceptions.BadRequestException;
 import az.edu.turing.profileapp.exceptions.RecordNotFoundException;
 import az.edu.turing.profileapp.model.dto.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +24,13 @@ public class CustomExceptionHandler {
                                                          WebRequest request) {
         log.error(ERROR_LOG, ex);
         return buildErrorResponse(HttpStatus.NOT_FOUND, ex.getCode(), ex.getMessage(), getPath(request));
+    }
 
+    @ExceptionHandler(BadRequestException.class)
+    public ResponseEntity<ErrorResponse> handleException(BadRequestException ex,
+                                                         WebRequest request) {
+        log.error(ERROR_LOG, ex);
+        return buildErrorResponse(HttpStatus.BAD_REQUEST, ex.getCode(), ex.getMessage(), getPath(request));
     }
 
     private ResponseEntity<ErrorResponse> buildErrorResponse(HttpStatus status,

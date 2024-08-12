@@ -1,0 +1,67 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Kanan Gurbanov
+      changes:
+        - createTable:
+            tableName: USERS
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: NAME
+                  type: VARCHAR(255)
+              - column:
+                  name: AGE
+                  type: INTEGER
+              - column:
+                  name: VERSION
+                  type: BIGINT
+
+  - changeSet:
+      id: 2
+      author: Kanan Gurbanov
+      changes:
+        - createTable:
+            tableName: PROFILES
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: MAIL_ADDRESS
+                  type: VARCHAR(255)
+              - column:
+                  name: PASSWORD
+                  type: VARCHAR(255)
+              - column:
+                  name: STATUS
+                  type: VARCHAR(255)
+                  defaultValue: ACTIVE
+              - column:
+                  name: SOCIAL_MEDIA_TYPE
+                  type: VARCHAR(15)
+              - column:
+                  name: IMAGE
+                  type: TEXT
+              - column:
+                  name: USER_ID
+                  type: BIGINT
+              - column:
+                  name: VERSION
+                  type: BIGINT
+
+        - addForeignKeyConstraint:
+            constraintName: fk_profile_user
+            baseTableName: PROFILES
+            baseColumnNames: USER_ID
+            referencedTableName: USERS
+            referencedColumnNames: ID
+            onDelete: CASCADE
