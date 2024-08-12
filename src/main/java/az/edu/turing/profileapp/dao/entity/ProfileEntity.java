@@ -1,12 +1,13 @@
 package az.edu.turing.profileapp.dao.entity;
 
+
+import az.edu.turing.profileapp.model.enums.SocialMediaType;
+import az.edu.turing.profileapp.model.enums.Status;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
-
-import java.util.List;
 
 @Entity
 @Data
@@ -15,20 +16,24 @@ import java.util.List;
 @DynamicInsert
 @DynamicUpdate
 @Builder
-@Table(name = "USERS")
+@Table(name = "PROFILES")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class UserEntity {
+public class ProfileEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    String name;
+    String mailAddress;
 
-    Integer age;
+    String password;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-    @JoinColumn(name = "user_id")
-    private List<ProfileEntity> profiles;
+    @Enumerated(EnumType.STRING)
+    Status status;
+
+    @Enumerated(EnumType.STRING)
+    SocialMediaType socialMediaType;
+
+    String image;
 
     @Version
     Long version;
