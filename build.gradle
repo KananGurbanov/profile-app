@@ -12,6 +12,14 @@ java {
     }
 }
 
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'az.edu.turing.profileapp.ProfileAppApplication'
+        )
+    }
+}
+
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
