@@ -22,6 +22,5 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - db_postgres
-    network_mode: "host"
     tty: true
     stdin_open: true

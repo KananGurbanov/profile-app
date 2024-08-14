@@ -1,3 +1,3 @@
-FROM openjdk:11
-COPY build/libs/profile-app-service-0.0.1-SNAPSHOT-plain.jar profile-app.jar
+FROM openjdk:17-jdk-slim
+COPY build/libs/profile-app-service-0.0.1-SNAPSHOT.jar profile-app.jar
 ENTRYPOINT ["java", "-jar", "profile-app.jar"]
